@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styeles.css">
+    <title>Atividade-08</title>
+</head>
+<body>
+    <div class="container">
+           
+        <div class="ex">  
+            <h1>Questão 01:<span>Calcular a média ponderada de 3 notas</span></h1>
+            <p id="res01">Resultado: A média das 3 notas foi xx.</p>
+            <label for="">Nota 01:</label><br>
+            <input type="text" id="n1"><br>
+            <label for="">Nota 02:</label><br>
+            <input type="text" id="n2"><br>
+            <label for="">Nota 03:</label><br>
+            <input type="text" id="n3"><br>
+            <input type="button" onclick="executarOperacao()" value="Calcular"><br>
+            <script>
+                function executarOperacao(){
+                    let n1 = document.getElementById('n1').value;
+                    let n2 = document.getElementById('n2').value;
+                    let n3 = document.getElementById('n3').value;
+                    let resultado = ((n1 * 2) + (n2 * 3) + (n3 * 5)) / 10;
+
+                    document.getElementById("res01").innerHTML = `Resultado: A média das 3 notas foi ${resultado}.`;
+                }
+            </script>
+        </div>
+        
+        <div class="ex">
+            <h1>Questão 02:<span> Senha Fixa </span></h1>
+            <p id="res02">Resultado: xxxxx</p>
+            <label for="">Digite a senha:</label><br>
+            <input type="password" id="senha"><br>  
+             <input type="button" onclick="mostrarSenha()" value="Calcular"><br>
+            <script>
+                function mostrarSenha() {
+                    let senha = document.getElementById("senha").value;
+                    let resultado = "Senha Invalida";
+                    if (senha == '2002') {
+                    resultado = "Acesso Permitido";
+                }
+                document.getElementById("res02").innerHTML = `Resultado: ${resultado}`;
+            }        
+            </script>
+        </div> 
+        <div class="ex">
+            <h1>Questão 03:<span> Intervalo [0,25], [25,50], [50,75], [75,100]</span></h1>
+            <p id="res03">Resultado: O valor digitado esta no intervalo [xx,xx].</p>
+            <label for="">valor:</label><br>
+            <input type="text" id="Intervalo"><br>
+            <input type="button" onclick="mostrarIntervalo()" value="Calcular"><br>
+            <script>
+                function mostrarIntervalo() {
+                    let Intervalo = document.getElementById("Intervalo").value;
+                    let resultado = "";
+                    if (Intervalo >= 0 && Intervalo <= 25) {
+                        resultado = "[0,25]";
+                    } else if (Intervalo > 25 && Intervalo <= 50) {
+                        resultado = "[25,50]";
+                    } else if (Intervalo > 50 && Intervalo <= 75) {
+                        resultado = "[50,75]";
+                    } else if (Intervalo > 75 && Intervalo <= 100) {
+                        resultado = "[75,100]";
+                    } else {
+                        resultado = "Fora do intervalo";
+                    }
+                    document.getElementById("res03").innerHTML = `Resultado: O valor digitado esta no intervalo ${resultado}`;
+                }
+            </script>
+        </div>
+        <br>
+        <div class="ex">
+            <h1>Questão 04:<span> Aumento de Salário </span></h1>
+            <p id="res04">Resultado: Novo salario: xx.xx, Ganho: xx.xx, Percentual: xx%</p>
+            <label for="">Salário atual:</label><br>
+            <input type="text" id="sal"><br>
+            <input type="button" onclick="mostrarValor()" value="Calcular">
+            <script>
+                function mostrarValor(){
+                    let sal = document.getElementById("sal").value;
+                    let novoSalario = 0;
+                    let ganho = 0;
+                    let percentual = 0;
+                    if(sal >= 0 && sal <= 400){
+                        percentual = 15;
+                        ganho = sal * 0.15;
+                        novoSalario = +sal + ganho;
+                    }
+                    if(sal > 400 && sal <= 800){
+                        percentual = 12;
+                        ganho = sal * 0.12;
+                        novoSalario = +sal + ganho;
+                    }
+                    if(sal > 800 && sal <= 1200){
+                        percentual = 10;
+                        ganho = sal * 0.10;
+                        novoSalario = +sal + ganho;
+                    }
+                    if(sal > 1200 && sal <= 2000){
+                        percentual = 7;
+                        ganho = sal * 0.07;
+                        novoSalario = +sal + ganho;
+                    }
+                    if(sal > 2000){
+                        percentual = 4;
+                        ganho = sal * 0.04;
+                        novoSalario = +sal + ganho;
+                    }
+
+                    document.getElementById("res04").innerHTML = `Resultado: Novo salario: ${novoSalario}, Ganho: ${ganho}, Percentual: ${percentual}%`;
+                }
+
+            </script>
+        </div>
+        <br>
+        <div class="ex">
+            <h1>Questão 05:<span> Imposto de Renda</span></h1>
+            <p id="res05">Resultado:Imposto xxxxx</p>
+            <label for="">Renda:</label><br>
+            <input type="text" id="renda"><br>
+            <input type="button" onclick="mostrarRenda()" value="Calcular">
+            <script>
+                function mostrarRenda(){
+                    let renda = document.getElementById("renda").value;
+                    let imposto = 0;
+                    let resultado = "";
+                    if(renda <= 2000){
+                        resultado = "Isento";
+                    }
+                    if(renda > 2000 && renda <= 3000){
+                        imposto = renda - 2000;
+                        imposto = imposto * 0.08;
+                        resultado = `R$ ${imposto}`;
+                    }
+                    if(renda > 3000 && renda <= 4500){
+                        imposto = renda - 3000;
+                        imposto = (imposto * 0.18) + 80;
+                        resultado = `R$ ${imposto}`;
+                    }
+                    if(renda > 4500){
+                        imposto = renda - 4500;
+                        imposto = (imposto * 0.28) + 350;
+                        resultado = `R$ ${imposto}`;
+                    }
+                    document.getElementById("res05").innerHTML = `Resultado: ${resultado}`;
+                } 
+            </script>
+        </div>
+        <br>
+        <div class="ex">
+            <h1>Questão 06:<span> Calcular o salário de um funcionário</span></h1>
+            <p id="res06">Resultado: O funcionario xxxxxx vai receber xxx.</p>
+            <label for="">Nome Funcionário</label><br>
+            <input type="text" id="nome"><br>
+            <label for="">Valor Hora</label><br>
+            <input type="text" id="valor"><br>
+            <label for="">Total de Horas Trabalhado</label><br>
+            <input type="text" id="horas"><br>
+            <input type="button" onclick="calcularSalario()" value="Calcular">
+            <script>
+                function calcularSalario(){
+                    let horas = document.getElementById("horas").value;
+                    let valor = document.getElementById("valor").value;
+                    let nome = document.getElementById("nome").value;
+                    let resultado = valor * horas;                
+                    document.getElementById("res06").innerHTML = `Resultado: O funcionario ${nome} vai receber ${resultado}.`;
+                }
+            </script>
+        </div>
+        <br>
+        <div class="ex">
+            <h1>Questã 07:<span> Calcular o consumo médio de um automóvel</span></h1>
+            <p id="res07">Resultado: O automóvel fez o consumo médio de xxx.</p>
+            <label for="">Distância percorrida</label><br>
+            <input type="text" id="distancia"><br>
+            <label for="">Combustível gasto</label><br>
+            <input type="text" id="combustivel"><br>
+            <input type="button" onclick="consumoMedio()" value="Calcular">
+            <script>
+                function consumoMedio(){
+                    let distancia = document.getElementById("distancia").value;
+                    let combustivel = document.getElementById("combustivel").value;
+                    let resultado = distancia/combustivel;                
+                    document.getElementById("res07").innerHTML = `Resultado: O automóvel fez o consumo médio de ${resultado}.`;
+                }  
+            </script>
+        </div> 
+    </div>
+</body>
+</html>
