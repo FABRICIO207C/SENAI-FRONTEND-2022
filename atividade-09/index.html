@@ -55,10 +55,15 @@
             <input type="button" value="Add" />
             <input type="button" value="Show" />
             <input type="button" value="Clear" />
+            <input type="button" onclick="listarItens()" value="Itens"><br>
             <script>
-                function listarItens(){
-
-                }
+            let itens =[];
+            function listarItens(value) {
+                itens += `<li>${value.toUpperCase()}</li>`;
+            }
+            itens.forEach(listarItens);
+            itens += "</ul>";
+            document.getElementById("res03").innerHTML = itens;
             </script>
         </div>
 
@@ -97,10 +102,23 @@
             <input type="button" value="Add" />
             <input type="button" value="Show" />
             <input type="button" value="Clear" />
+            <button onclick="listarNome()">Incluir Nome</button>
             <script>
-                function listarPessoas(){
-
+                let masculino = 'M';
+                let feminino = 'F';
+                let nome;
+                function listarNome(){
+                    let nome = prompt("Digite o nome do novo aluno");
+                    if(nome == null) return;
+                    if (novoNome == M){
+                        console.log("Masculino")
+                     incluirNome();
+                }else {
+                    console.log("Feminino");
+                nome.push(novoNome);
+                lacoFor();
                 }
+            }
             </script>
         </div>
 

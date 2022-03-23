@@ -5,3 +5,16 @@ https://github.com/FABRICIO207C/SENAI-FRONTEND-2022
 
 
 https://luiz87.github.io/lista-atividade/atividade-09/index.html
+
+
+
+Lista homens e mulheres
+•	O botão “Add” deve adicionar uma nova pessoa;
+•	O botão “Show” deve mostrar de forma separada os homens das mulheres;
+•	O botão “Clear” deve limpar e apagar o que foi apresentado.
+
+
+Lista armazenada
+•	O botão “Add” deve adicionar o item em um array;
+•	O botão “Show” deve mostrar todos os itens;
+•	O botão “Clear” deve limpar o array e apagar o que foi apresentado.
