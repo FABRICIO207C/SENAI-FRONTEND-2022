@@ -12,38 +12,64 @@
     <div id="corpo">
         <div class="ex">
             <h1>Questão 01:<span>Tabuada</span> </h1>
-            <input type="text" id="" style="display: inline" />
-            <input type="button" value="Calcular" />
-            <p id="res01">Resultado: <br>N x 1 = NX<br>N x 2 = NX<br>...<br>N x 10 = NX<br></p>
-            <input type="button" onclick="tabuada()" value="Calcular"><br>
+            <input type="text" id="n" style="display: inline" />
+            <!-- <input type="button" value="Calcular" /> -->
+            <p id="res01"><br></p>
+            <input type="button" value="Calcular"  onclick="tabuada()"><br>
             <script>
                 function tabuada(){
-                    for (var i = 1; i < 11; i++){
-                        document.write("<p> Tabuada do " + i + "<p>");
-                         for (var j = 1; j < 11; j++){
-                             document.write(i + " x " + j + " = " + (i * j) + "<br>");
-                        }
-                        document.getElementById("res01").innerHTML = `Resultado: O valor digitado esta no intervalo ${resultado}`;
-                    }
+                    let resultado = "Resultado: <br>";
+                    let n = document.getElementById('n').value;
+                    let i = 1;
+                    do {
+                        console.log(i);
+                        resultado += `${n} x ${i} =${n*i} <br>`;
+                        i++;
+
+                    } while (i <= 10);
+                    console.log(resultado);
+                    document.getElementById('res01').innerHTML = resultado;
                 }
+                 
+                // function tabuada(){
+                //     for (var i = 1; i < 11; i++){
+                //         document.write("<p> Tabuada do " + i + "<p>");
+                //          for (var j = 1; j < 11; j++){
+                //              document.write(i + " x " + j + " = " + (i * j) + "<br>");
+                //         }
+                //         document.getElementById("res01").innerHTML = `Resultado: O valor digitado esta no intervalo ${resultado}`;
+                //     }
+                // }
 
             </script>
         </div>
 
         <div class="ex">
             <h1>Questão 02:<span>Mostrar os números entre 2 valores</span> </h1>
-            <p id="res02">Resultado: Os número entre A e Z são (x,x,x,x,x).</p>
+            <p id="res02"></p>
             <label for="">Valor 01:</label>
-            <input type="text" id="" />
+            <input type="text" id="n1" />
             <label for="">Valor 02:</label>
-            <input type="text" id="" />
-            <input type="button" onclick="mostrarNumeros()" value="Executar"><br>
+            <input type="text" id="n2" />
+            <input type="button" onclick="q2()" value="Executar"><br>
             <script>
-                function mostrarNumeros(a, b){
-                    return Math.floor (Math.random() * (b - a + 1)) + a
+                function q2(){
+                    let n1 = +document.getElementById('n1').value;
+                    let n2 = +document.getElementById('n2').value;
+                    let resultado = '';
+                    for (let i = n1+1; i < Number (n2); i++){
+                        console.log(resultado);
+                        resultado += `,${i} `;
+                }
+                resultado = `Resultado: Os número entre ${n1}  e ${n2}  são (${resultado.substr(1)}) `;
+                document.getElementById('res02').innerHTML = resultado;
 
                 }
-                console.log(mostrarNumeros(0,10))
+                // function mostrarNumeros(a, b){
+                //     return Math.floor (Math.random() * (b - a + 1)) + a
+
+                // }
+                // console.log(mostrarNumeros(0,10))
             </script>
         </div>
 
@@ -51,88 +77,191 @@
             <h1>Questão 03:<span>Lista armazenada</span> </h1>
             <p id="res03">Resultado: A lista de itens é [xxxx,xxxx,xxxx,xxxxx]</p>
             <label for="">Item:</label>
-            <input type="text" id="" />
-            <input type="button" value="Add" />
-            <input type="button" value="Show" />
-            <input type="button" value="Clear" />
+            <input type="text" id="item" />
+            <input type="button" value="Add" onclick="addItem()" />
+            <input type="button" value="Show" onclick="showItens()" />
+            <input type="button" value="Clear" onclick="clearItens()"/>
             <input type="button" onclick="listarItens()" value="Itens"><br>
             <script>
-            let itens =[];
-            function listarItens(value) {
-                itens += `<li>${value.toUpperCase()}</li>`;
-            }
-            itens.forEach(listarItens);
-            itens += "</ul>";
-            document.getElementById("res03").innerHTML = itens;
+                let lsItem = [];
+                function clearItens(){
+                    lsItem = [];
+                    ShowItens();
+
+                }
+
+                function ShowItens(){
+                    let resultado = `Resultado: A lista de itens `
+                }
+                function addItem(){
+                    let item = document.getElementById("item").value;
+                    lsItem.push(item);
+                    ShowItens();
+                }
+            // let itens =[];
+            // function listarItens(value) {
+            //     itens += `<li>${value.toUpperCase()}</li>`;
+            // }
+            // itens.forEach(listarItens);
+            // itens += "</ul>";
+            // document.getElementById("res03").innerHTML = itens;
             </script>
         </div>
 
         <div class="ex">
             <h1>Questão 04:<span>Mega SENA</span></h1>
             <p id="res04">Resultado:00,00,00,00,00,00</p>
-            <input type="button" onclick="sorteio()" value="sorteiar!"><br>
+            <input type="button"  value="sorteiar!" onclick="sortear()"><br>
             <script>
-                let sorteados = [];
-                function sorteio (){
-                    return Math.floor(Math.random() * 60);
+
+                function sortear(){
+                let n = 0;
+                let i = 1;
+                let jogo = [];
+                while(i <= 6){
+                    n = Math.trunc((Math.random()* 59)+1);   
+                    jogo.push(n);
+                    i++;
                 }
-                while(sorteados.length < 6) {
-                    let Resultado = sorteio();
-                    if(sorteados.indexOf(Resultado) === -1){
-                        sorteados.push(Resultado);
-                    }
-                    document.getElementById("res04").innerHTML = `Resultado: O valor digitado esta no intervalo ${resultado}`;
-                }    
+                console.log(jogo);
+                document.getElementById('res04').innerHTML = `Resultado ${jogo}`;
+                }
+                // let sorteados = [];
+                // function sorteio (){
+                //     return Math.floor(Math.random() * 60);
+                // }
+                // while(sorteados.length < 6) {
+                //     let Resultado = sorteio();
+                //     if(sorteados.indexOf(Resultado) === -1){
+                //         sorteados.push(Resultado);
+                //     }
+                //     document.getElementById("res04").innerHTML = `Resultado: O valor digitado esta no intervalo ${resultado}`;
+                // }    
             </script>
         </div>
 
         <div class="ex">
             <h1>Questão 05:<span>Lista homens e mulheres</span></h1>
-            <p id="res05">
+            <!-- <p id="res05">
                 Resultado: <br />Lista de homens [xxxx,xxxx,xxxx,xxxxx] <br />Lista de
                 mulheres [xxxx,xxxx,xxxx,xxxxx]
-            </p>
+            </p> -->
             <label for="">Nome:</label>
-            <input type="text" id="" />
+            <input type="text" id="nome-pessoa" />
             <label for="">Sexo:</label>
-            <select name="sexo" id="">
+            <select name="sexo" id="sx-pessoa">
                 <option value="M">Masculino</option>
                 <option value="F">Feminino</option>
             </select>
-            <input type="button" value="Add" />
-            <input type="button" value="Show" />
-            <input type="button" value="Clear" />
+            <input type="button" value="Add" onclick="addPessoa()"/>
+            <input type="button" value="Show"  onclick="showPessoas()"/>
+            <input type="button" value="Clear" onclick="clearPessoas()" />
             <button onclick="listarNome()">Incluir Nome</button>
             <script>
-                let masculino = 'M';
-                let feminino = 'F';
-                let nome;
-                function listarNome(){
-                    let nome = prompt("Digite o nome do novo aluno");
-                    if(nome == null) return;
-                    if (novoNome == M){
-                        console.log("Masculino")
-                     incluirNome();
-                }else {
-                    console.log("Feminino");
-                nome.push(novoNome);
-                lacoFor();
+                let lsHomem = [];
+                let lsMulher= [];
+                function clearPessoas(){
+                    //
+                    //
+                    
                 }
-            }
+                function ShowPessoas(){
+                    let resultado = 
+                        `Resultado: <br />Lista de homens ${lsHomem} <br />Lista de
+                        mulheres ${lsMulher}`;
+                        document.getElementById("res05").innerHTML = resultado;
+                }
+                function addPessoa(){
+                   let nome = document.getElementById('nome-pessoa').value;
+                   let sexo = document.getElementById('sx-pessoa').value;
+                   
+                    // if (sexo == 'M'){
+                    //     lsHomem.push(nome);
+
+                    // }else if (sexo == 'F') {
+                    //     lsMulher
+
+                    // }else {
+
+                    // }
+
+                   switch (sexo){
+                        case "M":
+                            lsHomem[lsHomen.length] = nome;
+                        break;
+                        case "F":
+                            lsMulher[lsMulher.length] = nome;
+
+                    default:
+                    break;
+                   }
+                   console.log(lsHomem);
+                   showPessoas();
+                }
+
+
+
+
+            //     let masculino = 'M';
+            //     let feminino = 'F';
+            //     let nome;
+            //     function listarNome(){
+            //         let nome = prompt("Digite o nome do novo aluno");
+            //         if(nome == null) return;
+            //         if (novoNome == M){
+            //             console.log("Masculino")
+            //          incluirNome();
+            //     }else {
+            //         console.log("Feminino");
+            //     nome.push(novoNome);
+            //     lacoFor();
+            //     }
+            // }
             </script>
         </div>
 
         <div class="ex">
             <h1>DESAFIOO!:<span>Jo-Ken-Po</span></h1>
-            <p id="">Resultado: [Vitória|Derrota|Empate]</p>
-            <span onmouseover="this.style.fontSize = '50px'" onmouseout="this.style.fontSize = '30px'"
+            <p id="resultado-desafio">Resultado: [Vitória|Derrota|Empate]</p>
+            <span onclick="jogar('✊🏽')" onmouseover="this.style.fontSize = '50px'" 
+                onmouseout="this.style.fontSize = '30px'"
                 class="mao">✊🏽</span>
-            <span onmouseover="this.style.fontSize = '50px'" onmouseout="this.style.fontSize = '30px'"
+            <span onclick="jogar('🖐🏽')" onmouseover="this.style.fontSize = '50px'" 
+                onmouseout="this.style.fontSize = '30px'"
                 class="mao">🖐🏽</span>
-            <span onmouseover="this.style.fontSize = '50px'" onmouseout="this.style.fontSize = '30px'"
+            <span onclick="jogar('✌🏽')" onmouseover="this.style.fontSize = '50px'" 
+                onmouseout="this.style.fontSize = '30px'"
                 class="mao">✌🏽</span>
             #
-            <span class="adversario">👋🏽</span>
+            <span class="adversario" id="adversario">👋🏽</span>
+            <p id="placar"></p>
+            <script>
+                let qtV = 0;
+                let qtD = 0;
+                let qtE = 0;
+                function jogar(j){
+                    //console.log(j);
+                    let opcoes = ['✊🏽','🖐🏽','✌🏽']
+                    let pc = Math.trunc(Math.random() * 3);
+                    pc = opcoes[pc];
+                    document.getElementById("adversario").innerHTML = `${j} x ${pc}`;
+                    let resultado = "Resultado: ";
+                    if(j == pc){
+                        resultado += "Empate";
+                        qtE++;
+                    }else if((j == '✊🏽' && pc == '✌🏽') 
+                        || (j == '🖐🏽' && pc == '✊🏽')
+                        || (j == '✌🏽' && pc == '🖐🏽')) {
+                        resultado += "Vitoria";
+                        qtV++
+                    }else {
+                        resultado += "Derrota"; 
+                        qtD++;
+                    }
+                    document.getElementById("resultado-desafio").innerHTML = resultado;
+                    document.getElementById("placar").innerHTML = `Vitórias (${qtV}) - Empates (${qtE}) - Derrotas (${qtD})`;
+                }
+            </script>
         </div>
     </div>
 </body>
