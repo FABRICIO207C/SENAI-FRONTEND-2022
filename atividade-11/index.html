@@ -53,8 +53,8 @@
             </div>
        
             <button type="button" class="btn btn-secundary" onclick="limpaForm()">Novo</button>
-            <button type="button" class="btn btn-primary" onclick="gravar(this)">Gravar</button>
-            <button type="button" class="btn btn-danger" onclick="apagar()">Apagar</button>     
+            <button type="button" class="btn btn-primary" onclick="salvar(this)">Gravar</button>
+            <button type="button" class="btn btn-danger" onclick="excluir()">Apagar</button>     
         </form>
         <br>
         <table class="table table-hover">
@@ -75,7 +75,7 @@
     </div> 
 
 
-    <script>
+    <!-- <script>
 
         var nomePaciente = JSON.parse(localStorage.getItem("p-tabela"));
         if (nomePaciente == null){
@@ -84,7 +84,7 @@
             nomePaciente = JSON.parse(nomePaciente);
         }
 
-        function gravar(){
+        function salvar(){
             let pId = document.getElementById("id").value;
             let pNome = document.getElementById("nome").value.toUpperCase();
             if (pNome == ''){
@@ -190,7 +190,7 @@
 			document.getElementById('form-horizontal').reset();
 		}
 
-		function apagar() {
+		function excluir() {
 			var pId = document.getElementById("id").value;
 			if (pId != '') {
 				var save = confirm("Tem certeza que quer apagar esse registro?");
@@ -201,6 +201,6 @@
 				}
 			}
 		}
-    </script>
+    </script> -->
 </body>
 </html>

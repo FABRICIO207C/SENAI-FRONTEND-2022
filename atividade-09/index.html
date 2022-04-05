@@ -30,17 +30,6 @@
                     console.log(resultado);
                     document.getElementById('res01').innerHTML = resultado;
                 }
-                 
-                // function tabuada(){
-                //     for (var i = 1; i < 11; i++){
-                //         document.write("<p> Tabuada do " + i + "<p>");
-                //          for (var j = 1; j < 11; j++){
-                //              document.write(i + " x " + j + " = " + (i * j) + "<br>");
-                //         }
-                //         document.getElementById("res01").innerHTML = `Resultado: O valor digitado esta no intervalo ${resultado}`;
-                //     }
-                // }
-
             </script>
         </div>
 
@@ -60,16 +49,11 @@
                     for (let i = n1+1; i < Number (n2); i++){
                         console.log(resultado);
                         resultado += `,${i} `;
-                }
-                resultado = `Resultado: Os número entre ${n1}  e ${n2}  são (${resultado.substr(1)}) `;
-                document.getElementById('res02').innerHTML = resultado;
+                    }
+                    resultado = `Resultado: Os número entre ${n1}  e ${n2}  são (${resultado.substr(1)}) `;
+                    document.getElementById('res02').innerHTML = resultado;
 
                 }
-                // function mostrarNumeros(a, b){
-                //     return Math.floor (Math.random() * (b - a + 1)) + a
-
-                // }
-                // console.log(mostrarNumeros(0,10))
             </script>
         </div>
 
@@ -81,7 +65,7 @@
             <input type="button" value="Add" onclick="addItem()" />
             <input type="button" value="Show" onclick="showItens()" />
             <input type="button" value="Clear" onclick="clearItens()"/>
-            <input type="button" onclick="listarItens()" value="Itens"><br>
+            
             <script>
                 let lsItem = [];
                 function clearItens(){
@@ -91,20 +75,15 @@
                 }
 
                 function ShowItens(){
-                    let resultado = `Resultado: A lista de itens `
+                    let resultado = `Resultado: A lista de itens é [${lsItem}]`;
+                    document.getElementById("res03").innerHTML = resultado;
                 }
                 function addItem(){
                     let item = document.getElementById("item").value;
                     lsItem.push(item);
                     ShowItens();
                 }
-            // let itens =[];
-            // function listarItens(value) {
-            //     itens += `<li>${value.toUpperCase()}</li>`;
-            // }
-            // itens.forEach(listarItens);
-            // itens += "</ul>";
-            // document.getElementById("res03").innerHTML = itens;
+               
             </script>
         </div>
 
@@ -126,26 +105,15 @@
                 console.log(jogo);
                 document.getElementById('res04').innerHTML = `Resultado ${jogo}`;
                 }
-                // let sorteados = [];
-                // function sorteio (){
-                //     return Math.floor(Math.random() * 60);
-                // }
-                // while(sorteados.length < 6) {
-                //     let Resultado = sorteio();
-                //     if(sorteados.indexOf(Resultado) === -1){
-                //         sorteados.push(Resultado);
-                //     }
-                //     document.getElementById("res04").innerHTML = `Resultado: O valor digitado esta no intervalo ${resultado}`;
-                // }    
             </script>
         </div>
 
         <div class="ex">
             <h1>Questão 05:<span>Lista homens e mulheres</span></h1>
-            <!-- <p id="res05">
+            <p id="res05">
                 Resultado: <br />Lista de homens [xxxx,xxxx,xxxx,xxxxx] <br />Lista de
                 mulheres [xxxx,xxxx,xxxx,xxxxx]
-            </p> -->
+            </p>
             <label for="">Nome:</label>
             <input type="text" id="nome-pessoa" />
             <label for="">Sexo:</label>
@@ -156,68 +124,51 @@
             <input type="button" value="Add" onclick="addPessoa()"/>
             <input type="button" value="Show"  onclick="showPessoas()"/>
             <input type="button" value="Clear" onclick="clearPessoas()" />
-            <button onclick="listarNome()">Incluir Nome</button>
+    
             <script>
                 let lsHomem = [];
                 let lsMulher= [];
+
                 function clearPessoas(){
-                    //
-                    //
-                    
+                    lsMulher = '';
+                    lsHomem = [];    
                 }
+
                 function ShowPessoas(){
                     let resultado = 
-                        `Resultado: <br />Lista de homens ${lsHomem} <br />Lista de
-                        mulheres ${lsMulher}`;
-                        document.getElementById("res05").innerHTML = resultado;
+                        `Resultado: <br />Lista de homens [${lsHomem}] <br />Lista de
+                    mulheres [${lsMulher}]`;
+                    document.getElementById("res05").innerHTML = resultado;
                 }
+
                 function addPessoa(){
-                   let nome = document.getElementById('nome-pessoa').value;
-                   let sexo = document.getElementById('sx-pessoa').value;
-                   
-                    // if (sexo == 'M'){
-                    //     lsHomem.push(nome);
-
-                    // }else if (sexo == 'F') {
-                    //     lsMulher
-
-                    // }else {
-
-                    // }
-
-                   switch (sexo){
+                    let nome = document.getElementById('nome-pessoa').value;
+                    let sexo = document.getElementById('sx-pessoa').value;    
+                    switch (sexo){
                         case "M":
-                            lsHomem[lsHomen.length] = nome;
-                        break;
+                            lsHomem[lsHomem.length] = nome;
+                            break;
                         case "F":
                             lsMulher[lsMulher.length] = nome;
-
+                            break;
                     default:
-                    break;
-                   }
-                   console.log(lsHomem);
-                   showPessoas();
+                            break;
+                    }
+                    console.log(lsHomem);
+                    showPessoas();
+                    // if (sexo == 'M'){
+                    //      lsHomem.push(nome);
+
+                    // }else if (sexo == 'F') {
+                    //     lsMulher.push(nome);
+
+                    // }else {
+                    //      console.log(lsHomem);
+                    //      showPessoas();
+
+                    // } 
                 }
-
-
-
-
-            //     let masculino = 'M';
-            //     let feminino = 'F';
-            //     let nome;
-            //     function listarNome(){
-            //         let nome = prompt("Digite o nome do novo aluno");
-            //         if(nome == null) return;
-            //         if (novoNome == M){
-            //             console.log("Masculino")
-            //          incluirNome();
-            //     }else {
-            //         console.log("Feminino");
-            //     nome.push(novoNome);
-            //     lacoFor();
-            //     }
-            // }
-            </script>
+            </script>            
         </div>
 
         <div class="ex">
@@ -265,5 +216,4 @@
         </div>
     </div>
 </body>
-
 </html>
