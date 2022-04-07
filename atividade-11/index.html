@@ -1,206 +1,131 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Atividade 11</title>
-    
+    <title>Aula do dia 06-04-2022</title>
 </head>
 <body>
+
     <div class="container">
-        <br>
-        <h1>Painel Centro Cirurgico</h1>
-        <form id="form-horizontal">
-            <input type="hidden" id="id" name="id">
-            <div class="row">
-                <div class="form-group col-md-6">
-                    <label for="name">Nome do Paciente:</label>
-                    <input type="text" class="form-control" id="name" name="nome" placeholder="Nome do Paciente">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="status">Status:</label>
-                    <select class="form-control" id="status" name="status">
-                        <option value="operatorio">Pré Operatório</option>
-                        <option value="sala-cirurgica">Em sala de cirugia</option>
-                        <option value="recuperacao">Sala de Recuperação</option>
-                        <option value="transferido">Transferido</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-3">
-                    <label for ="local">Local:</label>
-                    <input type="text" class="form-control" id="local" name="local" placeholder="Sala/Quarto">
-                </div>
+      <h2>Painel Centro Cirurgico</h2>
+      <div class="row">
+          <input type="hidden" id="id" >
+            <div class="form-group col-sm-6"> 
+                <label for="nome">Nome do Paciente</label>
+                <input type="text" class="form-control" id="nome" name="nome">
             </div>
-            <div class="row">
-                <div class="form-group col-md-3">
-                    <label for="hora-inicio">Hora Início:</label>
-                    <input type="time" class="form-control" id="horaInicio" name="hora-inicio">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inicio-previsto">Início Previsto:</label>
-                    <input type="time" class="form-control" id="inicio-previsto" name="inicio-previsto">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="fim-previsto">Fim Previsto:</label>
-                    <input type="time" class="form-control" id="fim-previsto" name="fim-previsto">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="saida-prevista">Saída Prevista:</label>
-                    <input type="time" class="form-control" id="saida-prevista" name="saida-prevista">
-                </div>
+            <div class="form-group col-sm-3"> 
+                <label for="status">Status:</label>
+                <select class="form-control" id="status" name="status">
+                    <option value="operatorio">Pré Operatório</option>
+                    <option value="sala-cirurgica">Em sala de cirugia</option>
+                    <option value="recuperacao">Sala de Recuperação</option>
+                    <option value="transferido">Transferido</option>
+                </select>
             </div>
-       
-            <button type="button" class="btn btn-secundary" onclick="limpaForm()">Novo</button>
-            <button type="button" class="btn btn-primary" onclick="salvar(this)">Gravar</button>
-            <button type="button" class="btn btn-danger" onclick="excluir()">Apagar</button>     
-        </form>
-        <br>
-        <table class="table table-hover">
-            <thead>
+            <div class="form-group col-md-3">
+                <label for ="local">Local:</label>
+                <input type="text" class="form-control" id="local" name="local" placeholder="Sala/Quarto">
+            </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-3">
+            <label for="hora-inicio">Hora Início:</label>
+            <input type="time" class="form-control" id="horaInicio" name="hora-inicio">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inicio-previsto">Início Previsto:</label>
+            <input type="time" class="form-control" id="inicio-previsto" name="inicio-previsto">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="fim-previsto">Fim Previsto:</label>
+            <input type="time" class="form-control" id="fim-previsto" name="fim-previsto">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="saida-prevista">Saída Prevista:</label>
+            <input type="time" class="form-control" id="saida-prevista" name="saida-prevista">
+        </div>
+    </div>
+     
+    <br>
+    <button class="btn btn-secondary" onclick="novo()">Novo</button>
+    <button class="btn btn-primary" onclick="salvar()">Salvar</button>
+    <button class="btn btn-danger" onclick="excluir()">Excluir</button>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
                 <th width="40%">Nome do Paciente</th>
                 <th width="30%">Status</th>
-                <th width="10%">Hora início</th>
                 <th width="10%">Início Previsto</th>
-                <th width="10%">Fim Previsto</th>
+                <th width="10%">Início da Cirurgia</th>
+                <th width="10%">Fim da Cirurgia</th>
                 <th width="10%">Saída Prevista</th>
-            </thead>
-            <tbody id="corpoTabela" style="cursor:  pointer;"></tbody>
-        </table>
-        <script type="text/javascript">
-            let tabela = localStorage.getItem('corpo-tabela');
-            document.getElementById("corpo-tabela").innerHTML = tabela;
-        </script>
-    </div> 
+            </tr>
+        </thead> 
+        <tbody id="tbCorpo">
 
+        </tbody>
+    </table>
+  </div>
 
-    <!-- <script>
+  <script>
+      let listaPaciente = [];
 
-        var nomePaciente = JSON.parse(localStorage.getItem("p-tabela"));
-        if (nomePaciente == null){
-            nomePaciente = [];
-        }else{
-            nomePaciente = JSON.parse(nomePaciente);
+      if (localStorage.getItem('listaPaciente') != null) {
+          listaPaciente = JSON.parse(localStorage.getItem('listaPaciente'));
+      }
+
+      // localStorage.setItem();
+      
+      function salvar(){
+          let paciente = {};
+          paciente.nome = document.getElementById('nome').value;
+
+          let i = document.getElementById('id').value;
+          console.log(i == '');
+          if(i == ''){
+            listaPaciente.push(paciente); // console.log(listaPaciente);
+          }else{
+              listaPaciente[i] = paciente;
+          } 
+          localStorage.setItem('listaPaciente',JSON.stringify(listaPaciente));
+          carregarTable();
+          novo();
+      }
+
+      function carregarTable(){
+        let tabela = `<tr><td>Fabricio Araujo da Silva</td></tr>`;
+        for (i in listaPaciente){
+        
+            tabela += `<tr onclick='editar(${i})'><td>${listaPaciente[i].nome}</td></tr>`;
         }
+        document.getElementById('tbCorpo').innerHTML = tabela;
+      }
 
-        function salvar(){
-            let pId = document.getElementById("id").value;
-            let pNome = document.getElementById("nome").value.toUpperCase();
-            if (pNome == ''){
-                alert('Paciente e obrigatório.');
-                return false;
-            }
+      function editar(i){
+          document.getElementById('id').value = i;
+          document.getElementById('nome').value = listaPaciente[i].nome;
+      }
 
-            let pStatus = document.getElementById("status").value;
-            let pLocal = document.getElementById("local").value;
-            let pInicio = document.getElementById("inicio-previsto").value;
-            let pCirurgia = document.getElementById("inicio-cirurgia").value;
-            let pFim = document.getElementById("fim-cirurgia").value;
-            let pSaida = document.getElementById("saida-prevista").value;
+      function novo(){
+          document.getElementById('id').value = '';
+          document.getElementById('nome').value = '';
+      }
 
-         
+      function excluir(){
+          let i = document.getElementById('id').value;
+          listaPaciente.splice(i,1);
+          localStorage.setItem('listaPaciente', JSON.stringify(listaPaciente));
+          carregarTable();
+          novo();
+      }
 
-            if(pLocal !== ''){
-              pLocal = '('+ pLocal +')';
-
-            }
-            let save = confirm("Deseja Salvar?");
-            if (save){
-
-                let nomePaciente = {
-                nome: pNome,
-                status: pStatus,
-                local: pLocal,
-                inicio: pInicio,
-                cirurgia : pCirurgia,
-                fim : pFim,
-                saida : pSaida,
-            };
-            
-            if (pId == ''){
-                nomePaciente.splice(nomePaciente.length, 0, nomePaciente);
-            }else{
-                nomePaciente[pId]= nomePaciente;
-            }
-            atualizarTab();
-            limpaForm();
-        }
-
-        function Edicao(id) {
-			var p = nomePaciente[id];
-			document.getElementById("id").value = id;
-			document.getElementById("nome").value = p.nome;
-			document.getElementById("status").value = p.status;
-			document.getElementById("local").value = p.local.replace("(","").replace(")","");
-			document.getElementById("inicio-previsto").value = p.inicio;
-			document.getElementById("inicio-cirurgia").value = p.cirurgia;
-			document.getElementById("fim-cirurgia").value = p.fim;
-			document.getElementById("saida-previsto").value = p.saida;
-
-		}
-
-        function status(status) {
-			switch (status) {
-			case 'operatorio':
-				return {
-					label : 'Pré-Operatório',
-					cor : '#fbd972'
-				};
-			case 'sala-cirurgica':
-				return {
-					label : 'Em sala cirúrgica',
-					cor : '#fd5766'
-				};
-			case 'recuperacao':
-				return {
-					label : 'Em recuperação',
-					cor : '#89e89f'
-				};
-			case 'transferido':
-				return {
-					label : 'Transferído',
-					cor : '#b8daff'
-				};
-			}
-		}
-
-        function atualizarTab() {
-			var tabela = "";
-
-			for (i in nomePaciente) {
-				var stts = status(nomePaciente[i].status);
-				tabela += '<tr onclick="Edicao(' + i + ')">' + '<td>'
-						+ nomePaciente[i].nome + '</td>'
-						+ '<td style="background-color: '+stts.cor+';">'
-						+ stts.label + nomePaciente[i].local + '</td>' + '<td>'
-						+ nomePaciente[i].iniPrevisto + '</td>' + '<td>'
-						+ nomePaciente[i].iniCirurgia + '</td>' + '<td>'
-						+ nomePaciente[i].fimCirurgia + '</td>' + '<td>'
-						+ nomePaciente[i].saidaPrev + '</td>' + '</tr>';
-			}
-
-			document.getElementById("corpo-tabela").innerHTML = tabela;
-			localStorage.setItem('corpo-tabela', tabela);
-			localStorage.setItem('p-tabela', JSON.stringify(nomePaciente));
-		}
-
-		function limpaForm() {
-			document.getElementById("id").value = '';
-			document.getElementById('form-horizontal').reset();
-		}
-
-		function excluir() {
-			var pId = document.getElementById("id").value;
-			if (pId != '') {
-				var save = confirm("Tem certeza que quer apagar esse registro?");
-				if (save) {
-					nomePaciente.splice(pId, 1);
-					atualizarTab();
-					limpaForm();
-				}
-			}
-		}
-    </script> -->
+      carregarTable();
+  </script>
+    
 </body>
 </html>
