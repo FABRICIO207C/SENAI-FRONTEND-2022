@@ -33,28 +33,27 @@
       </div>
       <div class="row">
         <div class="form-group col-md-3">
-            <label for="hora-inicio">Hora Início:</label>
-            <input type="time" class="form-control" id="horaInicio" name="hora-inicio">
+            <label for="horaInicio">Hora Início:</label>
+            <input type="time" class="form-control" id="horaInicio" name="horaInicio">
         </div>
         <div class="form-group col-md-3">
-            <label for="inicio-previsto">Início Previsto:</label>
-            <input type="time" class="form-control" id="inicio-previsto" name="inicio-previsto">
+            <label for="inicioPrevisto">Início Previsto:</label>
+            <input type="time" class="form-control" id="inicioPrevisto" name="inicioPrevisto">
         </div>
         <div class="form-group col-md-3">
-            <label for="fim-previsto">Fim Previsto:</label>
-            <input type="time" class="form-control" id="fim-previsto" name="fim-previsto">
+            <label for="fimPrevisto">Fim Previsto:</label>
+            <input type="time" class="form-control" id="fimPrevisto" name="fimPrevisto">
         </div>
         <div class="form-group col-md-3">
-            <label for="saida-prevista">Saída Prevista:</label>
-            <input type="time" class="form-control" id="saida-prevista" name="saida-prevista">
+            <label for="saidaPrevista">Saída Prevista:</label>
+            <input type="time" class="form-control" id="saidaPrevista" name="saidaPrevista">
         </div>
     </div>
-     
     <br>
     <button class="btn btn-secondary" onclick="novo()">Novo</button>
-    <button class="btn btn-primary" onclick="salvar()">Salvar</button>
+    <button class="btn btn-primary" onclick="salvar(this)">Salvar</button>
     <button class="btn btn-danger" onclick="excluir()">Excluir</button>
-
+    <br>
     <table class="table table-hover">
         <thead>
             <tr>
@@ -83,14 +82,23 @@
       
       function salvar(){
           let paciente = {};
-          paciente.nome = document.getElementById('nome').value;
+          paciente.nome = document.getElementById('nome').value.toUpperCase();
+          paciente.status = document.getElementById('status').value;
+          paciente.local = document.getElementById('local').value;
+          paciente.horaInicio = document.getElementById('horaInicio').value;
+          paciente.inicioPrevisto = document.getElementById('inicioPrevisto').value;
+          paciente.fimPrevisto = document.getElementById('fimPrevisto').value;
+          paciente.saidaPrevisto = document.getElementById('saidaPrevista').value;
 
-          let i = document.getElementById('id').value;
-          console.log(i == '');
-          if(i == ''){
+          
+
+
+          let id = document.getElementById('id').value;
+          console.log(id == '');
+          if(id == ''){
             listaPaciente.push(paciente); // console.log(listaPaciente);
           }else{
-              listaPaciente[i] = paciente;
+              listaPaciente[id] = paciente;
           } 
           localStorage.setItem('listaPaciente',JSON.stringify(listaPaciente));
           carregarTable();
@@ -98,23 +106,68 @@
       }
 
       function carregarTable(){
-        let tabela = `<tr><td>Fabricio Araujo da Silva</td></tr>`;
+        let listaPaciente = JSON.parse(localStorage.getItem("listaPaciente"));
+        //let tabela = `<tr><td>Fabricio Araujo da Silva</td></tr>`;
+        let tabela = `<td>Fabricio Araujo da Silva</td>`;
         for (i in listaPaciente){
-        
-            tabela += `<tr onclick='editar(${i})'><td>${listaPaciente[i].nome}</td></tr>`;
+            tabela += `<tr> onclick="editar"(${i})">`
+            tabela += `<td>${listaPaciente[i].nome}</td>`;
+            tabela += colunaStatus(listaPaciente[i].status, listaPaciente[i].local);
+            tabela += `<td>${listaPaciente[i].horaInicio}</td>`;
+            tabela += `<td>${listaPaciente[i].inicioPrevisto}</td>`;
+            tabela += `<td>${listaPaciente[i].fimPrevisto}</td>`;
+            tabela += `<td>${listaPaciente[i].saidaPrevisto}</td>`;
+            tabela += `</tr>`;
         }
         document.getElementById('tbCorpo').innerHTML = tabela;
       }
 
-      function editar(i){
-          document.getElementById('id').value = i;
-          document.getElementById('nome').value = listaPaciente[i].nome;
+    function colunaStatus(status, local) {
+    var retorno = "<td &class>&status &local</td>";
+    local = (local == "") ? "" : `(${local})`;
+    retorno = retorno.replace("&local", local);
+    switch (status) {
+        case "operatorio": {
+            retorno = retorno.replace("&class", "class='table-warning'")
+                .replace("&status", "Pré Operatório");
+            break;
+        }
+        case "sala-cirurgia": {
+            retorno = retorno.replace("&class", "class='table-danger'")
+                .replace("&status", "Em sala de Cirurgia");
+            break;
+        }
+        case "recuperacao": {
+            retorno = retorno.replace("&class", "class='table-success'")
+                .replace("&status", "Sala de Recuperação");
+            break;
+        }
+        case "transferido": {
+            retorno = retorno.replace("&class", "class='table-primary'")
+                .replace("&status", "Trensferído");
+            break;
+        }
+    }
+    return retorno;
+}
+
+      function editar(id){
+          document.getElementById('id').value = id;
+          document.getElementById('nome').value = listaPaciente[id].nome;
+          document.getElementById('status').value = listaPaciente[id].status;
+          document.getElementById('local').value = listaPaciente[id].local;
+          document.getElementById('horaInicio').value = listaPaciente[id].horaInicio;
+          document.getElementById('inicioPrevisto').value = listaPaciente[id].inicioPrevisto;
+          document.getElementById('fimPrevisto').value = listaPaciente[id].fimPrevisto;
+          document.getElementById('saidaPrevista').value = listaPaciente[id].saidaPrevisto;
+          
       }
 
       function novo(){
           document.getElementById('id').value = '';
           document.getElementById('nome').value = '';
       }
+      carregarTable();
 
       function excluir(){
           let i = document.getElementById('id').value;
