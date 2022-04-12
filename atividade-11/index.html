@@ -94,7 +94,7 @@
 
 
           let id = document.getElementById('id').value;
-          console.log(id == '');
+          // console.log(id == '');
           if(id == ''){
             listaPaciente.push(paciente); // console.log(listaPaciente);
           }else{
@@ -108,9 +108,9 @@
       function carregarTable(){
         let listaPaciente = JSON.parse(localStorage.getItem("listaPaciente"));
         //let tabela = `<tr><td>Fabricio Araujo da Silva</td></tr>`;
-        let tabela = `<td>Fabricio Araujo da Silva</td>`;
+        let tabela = "";
         for (i in listaPaciente){
-            tabela += `<tr> onclick="editar"(${i})">`
+            tabela += `<tr> onclick="editar(${i})">`
             tabela += `<td>${listaPaciente[i].nome}</td>`;
             tabela += colunaStatus(listaPaciente[i].status, listaPaciente[i].local);
             tabela += `<td>${listaPaciente[i].horaInicio}</td>`;
@@ -152,14 +152,15 @@
 }
 
       function editar(id){
-          document.getElementById('id').value = id;
-          document.getElementById('nome').value = listaPaciente[id].nome;
-          document.getElementById('status').value = listaPaciente[id].status;
-          document.getElementById('local').value = listaPaciente[id].local;
-          document.getElementById('horaInicio').value = listaPaciente[id].horaInicio;
-          document.getElementById('inicioPrevisto').value = listaPaciente[id].inicioPrevisto;
-          document.getElementById('fimPrevisto').value = listaPaciente[id].fimPrevisto;
-          document.getElementById('saidaPrevista').value = listaPaciente[id].saidaPrevisto;
+          
+          document.getElementById("nome").value = listaPaciente[id].nome;
+          document.getElementById("status").value = listaPaciente[id].status;
+          document.getElementById("local").value = listaPaciente[id].local;
+          document.getElementById("horaInicio").value = listaPaciente[id].horaInicio;
+          document.getElementById("inicioPrevisto").value = listaPaciente[id].inicioPrevisto;
+          document.getElementById("fimPrevisto").value = listaPaciente[id].fimPrevisto;
+          document.getElementById("saidaPrevista").value = listaPaciente[id].saidaPrevisto;
+          document.getElementById("id").value = id;
           
       }
 
