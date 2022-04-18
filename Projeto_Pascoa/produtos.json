@@ -1,0 +1,59 @@
+[
+    {
+        "nome": "Produto 00",
+        "descricao":"Brigadeiro",
+        "valor":100,
+        "qt":0,
+        "img":"image/ovos pascoa02.jpg"
+    },
+    {
+        "nome": "Produto 01",
+        "descricao":"Brigadeiro",
+        "valor":100,
+        "qt":0,
+        "img":"image/ovos pascoa02.jpg"
+    },
+    {
+        "nome": "Produto 02",
+        "descricao":"Brigadeiro",
+        "valor":100,
+        "qt":0,
+        "img":"image/ovos pascoa02.jpg"
+    },
+    {
+        "nome": "Produto 03",
+        "descricao":"Brigadeiro",
+        "valor":100,
+        "qt":0,
+        "img":"image/ovos pascoa02.jpg"
+    },
+    {
+        "nome": "Produto 04",
+        "descricao":"Brigadeiro",
+        "valor":100,
+        "qt":0,
+        "img":"image/ovos pascoa02.jpg"
+    },
+    {
+        "nome": "Produto 05",
+        "descricao":"Brigadeiro",
+        "valor":100,
+        "qt":0,
+        "img":"image/ovos pascoa02.jpg"
+    },
+    {
+        "nome": "Produto 06",
+        "descricao":"Brigadeiro",
+        "valor":100,
+        "qt":0,
+        "img":"image/ovos pascoa02.jpg"
+    },
+    {
+        "nome": "Produto 07",
+        "descricao":"Brigadeiro",
+        "valor":100,
+        "qt":0,
+        "img":"image/ovos pascoa02.jpg"
+    }
+
+]

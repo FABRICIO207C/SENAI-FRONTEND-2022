@@ -5,44 +5,87 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Projeto Páscoa</title>
+    <link rel="stylesheet" href="styele.css">
+    <title>Dona Chiquinha</title>
 </head>
 <body>
-    
-    <div class="container">
-        <h2> Ovos de Páscoa Artesanais </h2>
-        <div class="row">
-            <div class="form-group col-sm-3">
-                <label for="prod01">Brigadeiro</label>
-                <!-- <img src="image/ovos-de-pascoa-artesanais.jpg" alt=""> -->
-                <input type="text" class="form-control" id="prod01" name="prod01" src="image/ovos-de-pascoa-artesanais.jpg">
-                <button class=""><img src="image/ovos-de-pascoa-artesanais.jpg" alt=""></button>
-            </div>
-            <div class="form-group col-sm-3">
-                <label for="prod02">Leite Ninho</label>
-                <input type="text" class="form-control" id="prod01" name="prod02">
-            </div>
-            <div class="form-group col-sm-3">
-                <label for="prod03">Ovos de Páscoa</label>
-                <input type="text" class="form-control" id="prod03" name="prod03">
-            </div>
-        </div>
+      <section class="container">
+        <header>
+          <picture>
+            <source media="(min-width: 900px)" srcset="">
+            <source media="(min-width: 600px)" srcset="">
+            <img src="" alt="">
+          </picture>
+        </header>
+        <nav class="row">
+            <ul>
+                <li><a href="index.html">Ovos de Páscoa</a></li>
+                <li><a href="">Cadastro</a></li>
+                <li><a href="">Sobre</a></li>
+                <li><a href="">Localização</a></li>
+            </ul>
+        </nav>
+            
+            <!-- <header>Dona Chiquinha Ovos de Páscoa Artesanal </header> -->
+        <section class="row lista">
+          <section class="col-md-3 produto">
+            <img src="image/ovos pascoa02.jpg" alt="">  
+              <section class="titulo">Produto 00</section>
+              <section class="descricao">Descrição do Produto</section>
+              <section class="valor">R$ 100,00</section>
+              <section class="bt menos">-</section>
+              <section class="qt">0</section>
+              <section class="bt mais">+</section>
+          </section>
+        </section>
+      
+        <!-- <footer>
+          background: #6aabd2;
+          height: 7rem;
+        </footer> -->
+      </section>
+      <script>
+        lista = [];
+        function buscarListaProduto(){
+          let ajax = new XMLHttpRequest();
+          ajax.open("GET", "produtos.json");
+          ajax.send();
+          ajax.onload = function() {
+              lista =JSON.parse(this.response);
+              replicar();
+          }
+          
+        }
+        function replicar(){
+          let i = 0;
+          for (const p of lista) {
+            let id = i;
+            let produto = document.querySelector(".produto").cloneNode(true);
+            
+            produto.querySelector(".titulo").innerHTML = p.nome;
+            produto.querySelector("img").innerHTML = p.img;
+            produto.querySelector(".valor").innerHTML = `R$ ${p.valor}`;
+            produto.querySelector(".descricao").innerHTML = p.descricao;
+            produto.querySelector(".qt").innerHTML = p.qt;
 
-        <div class="row"> 
-            <div class="form-group col-md-3">
-                <label for="prod04">Ovos de Páscoa</label>
-                <input type="text" class="form-control" id="prod04" name="prod04">
-            </div>
-            <div class="form-group col-md-3">
-                <label for="prod05">Ovos de Páscoa</label>
-                <input type="text" class="form-control" id="prod05" name="prod05">
-            </div>
-            <div class="form-group col-md-3">
-                <label for="produ06">Ovos de Páscoa</label>
-                <input type="text" class="form-control" id="prod06" name="prod06">
-            </div>
-        </div>
-    </div>
-    
+            produto.querySelector(".menos").addEventListener("click", function(){alterarQt(id, -1)});
+            produto.querySelector(".mais").addEventListener("click", function(){alterarQt(id, 1)});
+
+            document.querySelector(".lista").append(produto);
+            i++;
+
+          }
+          document.querySelector(".produto").remove();
+          
+        }
+        function alterarQt(id, qt) {
+          let p = lista[id];
+          p.qt += qt;
+          if(p.qt < 0) p.qt = 0;
+          document.getElementsByClassName("qt")[id].innerHTML = p.qt;
+        
+        }
+        buscarListaProduto();
+      </script>
 </body>
 </html>
