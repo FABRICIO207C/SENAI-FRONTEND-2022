@@ -42,6 +42,17 @@ nav ul li a {
     padding: 5px;
 }
 
+nav ul i {
+    float: right;
+    font-size: 100;
+    background: brown;
+    margin: 6px;
+    padding: 5px;
+    border-radius: 3px;
+    color: aliceblue;
+    cursor: pointer;
+}
+
 
 
 .produto {
@@ -107,6 +118,10 @@ nav ul li a {
     width: 15%;
     height: 20%;
     text-align: center;
+}
+
+.form-inline input {
+    float: left;
 }
 
 
