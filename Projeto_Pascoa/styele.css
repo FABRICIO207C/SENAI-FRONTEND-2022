@@ -1,24 +1,13 @@
 * {
     margin: 0;
     padding: 0;
+    color: black;
+    font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
 
-
-.container {
-    max-width: 1024px;
-    margin: 0 auto;
-}
-
-.container > header{
-    background: #d4e4ef;
-    text-align: center;
-    padding-top: 1rem;
-}
-
-
-
 nav {
+    box-sizing: border-box;
     background: #0a6082;
     font-size: 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -45,26 +34,21 @@ nav ul li a {
 nav ul i {
     float: right;
     font-size: 100;
-    background: brown;
+    background: #d4e4ef;;
     margin: 6px;
     padding: 5px;
     border-radius: 3px;
-    color: aliceblue;
+    color: black;
     cursor: pointer;
 }
-
-
 
 .produto {
     margin-bottom: 10px; 
     cursor: pointer; 
-    /* background-color: aquamarine; */
     height: 225px;
     margin-top: 10px;
     margin-bottom: 30px;
     padding: 30px;
-
-
 }
 
 .produto img {
@@ -72,7 +56,6 @@ nav ul i {
     height: 100%;
     width: 100%;
 }
-
 
 .produto .titulo {
     float: left;
@@ -90,7 +73,7 @@ nav ul i {
     background-color: bisque;
     width: 100%;
     text-align: center;
-    height: 30px;
+    height: 40px;
     padding: 5px;
 
 }
@@ -110,18 +93,153 @@ nav ul i {
     text-align: center;
     background-color: gray;
     cursor: pointer;
-
 }
 
 .produto .qt{
     float: left;
     width: 15%;
-    height: 20%;
+    height: 10%;
     text-align: center;
 }
 
-.form-inline input {
-    float: left;
+footer   {
+    background: #6aabd2;
+    position: relative;
+    color: #d9d9d9;
+    height: 300px;
+    width: 100%;
+    margin: 45px;
+    
+}
+
+.main-content{
+    display: flex;
+}
+.main-content .box{
+    flex-basis: 50%;
+    padding: 10px 20px;
+}
+.box h2{
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.box .content{
+    margin: 20px 0 0 0;
+    position: relative;
+}
+.box .content:after{
+    position: absolute;
+    content: '';
+    width: 15%;
+    height: 2px;
+    background: #f12020;
+    top: -10px;
+}
+.box .content:before{
+    position: absolute;
+    content: '';
+    height: 2px;
+    width: 100%;
+    background: #1a1a1a;
+    top: -10px;
+}
+.left .content .social{
+    margin: 20px 0 0 0;
+}
+.left .content .social a{
+    padding: 0 2px;
+}
+.left .content .social a span{
+    width: 40px;
+    height: 40px;
+    background: #1a1a1a;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+.left .content .social a span:hover{
+    background: #f12020;
+}
+.left .content p{
+    text-align: justify;
+}
+.center .content .fas{
+    font-size: 23px;
+    background: #1a1a1a;
+    width: 45px;
+    height: 45px ;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 50%;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.center .content .fas:hover{
+    background: #f12020;
+}
+.center .content .text{
+    font-size: 17px;
+    font-weight: 500;
+    padding-left: 10px;
+}
+.center .content .phone{
+    margin: 10px 0;
+}
+.center .content .msg{
+    margin-top: 10px;
+}
+.right form input, .right form textarea{
+    width: 100%;
+    font-size: 17px;
+    background: #151515;
+    padding-left: 10px;
+    border: 1px solid #222222;
+}
+.right form input{
+    height: 35px;
+}
+.right form input:focus,
+.right form textarea:focus{
+    outline-color: #3498db;
+}
+.right form .text{
+    font-size: 17px;
+    margin-bottom: 2px;
+    color: #656565;
+}
+.right form .btn1{
+    margin-top: 10px;
+}
+.right form .btn1 button{
+    height: 40px;
+    width: 100%;
+    background: #f12020;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .3s;
+}
+.right form .btn button:hover{
+    background: #000;
+}
+.bottom .center{
+    padding: 5px;
+    font-size: 15px;
+    background: #151515;
+    text-align: center;
+}
+.bottom .center span{
+    color: #656565;
+}
+.bottom .center a{
+    color: #f12020;
+    text-decoration: none;
+}
+.bottom .center a:hover{
+    text-decoration: underline;
 }
 
 
