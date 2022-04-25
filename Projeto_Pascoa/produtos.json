@@ -2,58 +2,45 @@
     {
         "nome": "Produto 00",
         "descricao":"Brigadeiro",
-        "valor":100,
+        "valor":58.41,
         "qt":0,
         "img":"image/ovos pascoa02.jpg"
     },
     {
         "nome": "Produto 01",
         "descricao":"Brigadeiro",
-        "valor":100,
+        "valor":96.58,
         "qt":0,
         "img":"image/ovos pascoa02.jpg"
     },
     {
         "nome": "Produto 02",
         "descricao":"Brigadeiro",
-        "valor":100,
+        "valor":77.46,
         "qt":0,
         "img":"image/ovos pascoa02.jpg"
     },
     {
         "nome": "Produto 03",
         "descricao":"Brigadeiro",
-        "valor":100,
+        "valor":35.68,
         "qt":0,
         "img":"image/ovos pascoa02.jpg"
     },
     {
         "nome": "Produto 04",
         "descricao":"Brigadeiro",
-        "valor":100,
+        "valor":44.99,
         "qt":0,
         "img":"image/ovos pascoa02.jpg"
     },
     {
         "nome": "Produto 05",
         "descricao":"Brigadeiro",
-        "valor":100,
-        "qt":0,
-        "img":"image/ovos pascoa02.jpg"
-    },
-    {
-        "nome": "Produto 06",
-        "descricao":"Brigadeiro",
-        "valor":100,
-        "qt":0,
-        "img":"image/ovos pascoa02.jpg"
-    },
-    {
-        "nome": "Produto 07",
-        "descricao":"Brigadeiro",
-        "valor":100,
+        "valor":56.89,
         "qt":0,
         "img":"image/ovos pascoa02.jpg"
     }
+    
 
 ]
