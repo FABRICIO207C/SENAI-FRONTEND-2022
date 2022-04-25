@@ -201,10 +201,12 @@ footer   {
     width: 100%;
     font-size: 17px;
     background: #151515;
+    color: #ecedea;
     padding-left: 10px;
     border: 1px solid #222222;
 }
 .right form input{
+   
     height: 35px;
 }
 .right form input:focus,
