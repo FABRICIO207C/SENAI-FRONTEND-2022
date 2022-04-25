@@ -84,6 +84,7 @@ nav ul i {
     width: 55%;
     text-align: center;
     height: 20%;
+    padding: 5px;
 }
 
 .produto .bt{
@@ -93,6 +94,7 @@ nav ul i {
     text-align: center;
     background-color: gray;
     cursor: pointer;
+    padding: 5px;
 }
 
 .produto .qt{
@@ -100,6 +102,7 @@ nav ul i {
     width: 15%;
     height: 20%;
     text-align: center;
+    padding: 5px;
 }
 
 footer   {
@@ -145,7 +148,7 @@ footer   {
     background: #1a1a1a;
     top: -10px;
 }
-.left .content .social{
+/* .left .content .social{
     margin: 20px 0 0 0;
 }
 .left .content .social a{
@@ -163,9 +166,9 @@ footer   {
 }
 .left .content .social a span:hover{
     background: #f12020;
-}
+} */
 .left .content p{
-    
+    color: #ecedea;
     text-align: justify;
 }
 .center .content .fas{
@@ -183,6 +186,7 @@ footer   {
     background: #f12020;
 }
 .center .content .text{
+    color: #ecedea;
     font-size: 17px;
     font-weight: 500;
     padding-left: 10px;
@@ -224,7 +228,7 @@ footer   {
     cursor: pointer;
     transition: .3s;
 }
-.right form .btn button:hover{
+.right form .btn1 button:hover{
     background: #000;
 }
 .bottom .center{
