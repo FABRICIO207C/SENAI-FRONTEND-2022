@@ -120,6 +120,7 @@ footer   {
     padding: 10px 20px;
 }
 .box h2{
+    color: #ecedea;
     font-size: 18px;
     font-weight: 600;
     text-transform: uppercase;
@@ -164,6 +165,7 @@ footer   {
     background: #f12020;
 }
 .left .content p{
+    
     text-align: justify;
 }
 .center .content .fas{
