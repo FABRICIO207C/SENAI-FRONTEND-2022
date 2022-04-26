@@ -8,128 +8,57 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styele.css">
     <title>Dona Chiquinha</title>
 </head>
 <body>
-      <div class="container">
-        <!-- <header>
-          <picture>
-            <source media="(min-width: 900px)" srcset="">
-            <source media="(min-width: 600px)" srcset="">
-            <img src="" alt="">
-          </picture>
-        </header> -->
-        <nav class="row">
-            <ul>
-                <li><a href="index.html">Ovos de Páscoa</a></li>
-                <li><a href="">Cadastro</a></li>
-                <li><a href="">Sobre</a></li>
-                <li><a href="">Localização</a></li>
-                <i data-toggle="modal" onclick="mostrarPedido()" data-target="#myModal" class="material-icons">shopping_cart</i>
-            </ul>
-        </nav>
-            
-            <!-- <header>Dona Chiquinha Ovos de Páscoa Artesanal </header> -->
-        <div class="row lista">
-          <div class="col-md-4 produto">
-            <img src="image/ovos pascoa02.jpg" alt="">  
-              <div class="titulo">Produto 00</div>
-              <div class="descricao">Descrição do Produto</div>
-              <div class="valor">R$ 100,00</div>
-              <div class="bt menos">-</div>
-              <div class="qt">0</div>
-              <div class="bt mais">+</div>
+    <div class="container">
+      <nav class="row">
+          <ul>
+            <li><a href="index.html"> Ovos de Páscoa </a></li>
+              <li><a href="">Cadastro</a></li>
+              <li><a href="">Sobre</a></li>
+              <li><a href="">Localização</a></li>
+              <span>Dona chiquinha</span>
+              <i data-toggle="modal" onclick="mostrarPedido()" data-target="#myModal" class="material-icons">shopping_cart</i>
+          </ul>
+      </nav>  
+      <!-- <header>Dona Chiquinha Ovos de Páscoa Artesanal </header> -->
+      <div class="row lista">
+        <div class="col-md-4 produto">
+          <img src="image/ovos pascoa02.jpg" alt="">  
+            <div class="titulo">Produto 00</div>
+            <div class="descricao">Descrição do Produto</div>
+            <div class="valor">R$ 100,00</div>
+            <div class="bt menos">-</div>
+            <div class="qt">0</div>
+            <div class="bt mais">+</div>
+        </div>
+      </div>
+      <footer>
+      </footer>
+    </div>
+    
+    <script src="script.js"></script>
+   
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+          
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Informações do Pedido</h4>
+          </div>
+          <div class="modal-body">
+          </div>
+          <div class="modal-footer form-inline">
+            <input type="text" name="" id="nome" class="form-control" placeholder="Nome">
+            <input type="text" name="" id="endereco" class="form-control" placeholder="Endereço">
+            <button type="button" onclick="enviar()" class="btn btn-default" disabled id="btEnviar">Enviar</button>
           </div>
         </div>
-      
-        <footer class="row">
-          <div class="main-content">
-            <div class="left box">
-              <h2>DONA CHIQUINHA</h2>
-              <div class="content">
-                <p>Fabrica de ovos de páscoa artesanais..........</p>
-              
-                <!-- <div class="social">
-                  <a href="#"><span class="fab fa-facebook-f"></span></a>
-                  <a href="#"><span class="fab fa-twitter"></span></a>
-                  <a href="#"><span class="fab fa-instagram"></span></a>
-                  <a href="#"><span class="fab fa-youtube"></span></a>
-                </div> -->
-              </div>
-            </div><!--left box-->
-            <div class="center box">
-              <h2>Endereço</h2>
-              <div class="content">
-                <div class="place">
-                  <span class="fas fa-map-marker"></span>
-                  <span class="text">Brasília, Nova Capital</span>
-                </div>
-      
-                <div class="phone">
-                  <span class="fas fas fa-phone-alt"></span>
-                  <span class="text">+55 61 9999-9999</span>
-                </div>
-      
-                <div class="email">
-                  <span class="fas fa-envelope"></span>
-                  <span class="text">Senai@exemplo.com</span>
-                </div>
-              </div>
-            </div>
-            <div class="right box">
-              <h2>Contato</h2>
-              <div class="content">
-                <form action="#">
-                  <div class="email">
-                    <div class="text">Email *</div>
-                    <input type="email" required>
-                  </div>
-                  <div class="msg">
-                    <div class="text">Mensagem *</div>
-                    <textarea rows="2" cols="25" required></textarea>
-                  </div>
-                  <div class="btn1">
-                    <button type="submit">Enviar</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div><!--main-content-->
-          <div class="bottom">
-            <div class="center">
-              <span class="credit">Criado por <a href="#">SENAI</a></span>
-              <span class="far fa-copyright">2022 Todos os diteitos reservados</span>
-            </div>
-          </div>
-        </footer>
-
       </div>
-      <script src="script.js">
-  
-      </script>
-        <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog">
-          
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Informações do Pedido</h4>
-              </div>
-              <div class="modal-body">
-               
-              </div>
-              <div class="modal-footer form-inline">
-                <input type="text" name="" id="nome" class="form-control" placeholder="Nome">
-                <input type="text" name="" id="endereco" class="form-control" placeholder="Endereço">
-                <button type="button" onclick="enviar()" class="btn btn-default" disabled id="btEnviar">Enviar</button>
-              </div>
-            </div>
-            
-          </div>
-       </div>
+    </div>
 </body>
 </html>
